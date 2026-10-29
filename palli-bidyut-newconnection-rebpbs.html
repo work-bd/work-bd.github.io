@@ -377,7 +377,7 @@ function brandDraw(doc, page, A, w, x0, y0){
   const u = brandU(w), h = brandH(w), rgb = PDFLib.rgb, blue = rgb(.18,.31,.85);
   page.drawRectangle({x:x0, y:y0, width:w, height:h, color:rgb(1,1,1)});
   page.drawLine({start:{x:x0+w*.06, y:y0+h-.5*u}, end:{x:x0+w*.94, y:y0+h-.5*u}, thickness:.6*u, color:rgb(.84,.86,.92)});
-  const fs = 9.5*u, lh = 13*u, lw = lh*BRAND_AR, gap = 6*u, tw = A.font.widthOfTextAtSize(BRAND_TXT, fs);
+  const fs = 9.5*u, lh = 8*u, lw = lh*BRAND_AR, gap = 6*u, tw = A.font.widthOfTextAtSize(BRAND_TXT, fs);
   const sx = x0+(w-(lw+gap+tw))/2, ly = y0+(h-lh)/2-.5*u;
   page.drawImage(A.logo, {x:sx, y:ly, width:lw, height:lh});
   const tx = sx+lw+gap, ty = ly+(lh-fs*.72)/2;
@@ -910,7 +910,7 @@ async function brandAppend(c){
   g.fillStyle = '#fff'; g.fillRect(0, 0, w, o.height); g.imageSmoothingQuality = 'high'; g.drawImage(c, 0, 0);
   const y0 = c.height;
   g.fillStyle = '#d6dbea'; g.fillRect(w*.06, y0, w*.88, Math.max(1, .6*u));
-  const fs = Math.round(9.5*u*1.1), lh = 13*u*1.1, lw = lh*BRAND_AR, gap = 6*u;
+  const fs = Math.round(9.5*u*1.1), lh = 8*u*1.1, lw = lh*BRAND_AR, gap = 6*u;
   g.font = '700 '+fs+'px Arial, Helvetica, sans-serif'; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
   const tw = g.measureText(BRAND_TXT).width, sx = (w-(lw+gap+tw))/2, ly = y0+(h-lh)/2;
   g.drawImage(im, sx, ly, lw, lh);
