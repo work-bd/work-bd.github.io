@@ -75,6 +75,7 @@ footer img{height:36px;display:block;margin:0 auto 6px}
 .th.sel{cursor:pointer}
 .stage{position:relative;display:inline-block;max-width:100%;border:1px solid var(--line);background:#f1f4f9;touch-action:none}
 .stage canvas{display:block;max-width:100%;height:auto}
+.stage #hc,.stage #ov{width:100%;height:100%}
 .ov{position:absolute;cursor:move;border:1.5px dashed var(--brand);touch-action:none}
 .ov img{width:100%;height:100%;display:block;pointer-events:none;-webkit-user-drag:none}
 .ov .hd{position:absolute;right:-8px;bottom:-8px;width:16px;height:16px;border-radius:50%;background:var(--brand);border:2px solid #fff;cursor:nwse-resize}
@@ -89,6 +90,35 @@ footer img{height:36px;display:block;margin:0 auto 6px}
 .tabs2 button{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 16px;cursor:pointer}
 .tabs2 button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .sigpad{border:1.5px solid #cfd8f6;border-radius:10px;background:#fff;touch-action:none;width:100%;max-width:460px;height:150px;display:block}
+.tbox{position:absolute;z-index:5;outline:1.5px dashed var(--brand);outline-offset:0}
+.ted{display:block;min-width:14px;min-height:1.3em;padding:.12em;line-height:1.3;white-space:pre;outline:none;background:transparent;cursor:text;font-family:"Noto Sans Bengali","Kalpurush","Nirmala UI",Helvetica,Arial,sans-serif}
+.tgrip{position:absolute;left:-1px;top:-20px;width:20px;height:18px;line-height:18px;text-align:center;font-size:13px;background:var(--brand);color:#fff;border-radius:5px 5px 0 0;cursor:move;user-select:none;touch-action:none}
+#brushcur{position:absolute;left:0;top:0;z-index:4;pointer-events:none;border-radius:50%;border:1.5px solid rgba(15,23,42,.7);box-shadow:0 0 0 1px rgba(255,255,255,.85);transform:translate(-50%,-50%);display:none}
+
+/* more visible buttons */
+.tabs2{gap:10px}
+.tabs2 button{font-size:15.5px;font-weight:700;padding:11px 20px;border:2px solid #9fb0d8;background:#eef2ff;color:var(--ink);box-shadow:0 2px 0 rgba(47,79,216,.18),0 3px 8px rgba(15,23,42,.08);transition:transform .08s,background .12s,border-color .12s}
+.tabs2 button:hover{background:#dfe7ff;border-color:var(--brand);transform:translateY(-1px)}
+.tabs2 button:active{transform:translateY(1px);box-shadow:none}
+.tabs2 button.on{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 3px 10px rgba(47,79,216,.45)}
+.tabs2 button[data-t="edit"]:not(.on){background:#fff7d6;border-color:#f0b429;color:#7a4b00}
+.tabs2 button[data-t="edit"]:not(.on):hover{background:#ffeea6}
+.btn.ghost{background:#e4e9fb;border:2px solid #9fb0d8;color:var(--ink);padding:10px 20px}
+.btn.ghost:hover{background:#d3dcfa;border-color:var(--brand);filter:none}
+#go.btn{font-size:17px;padding:14px 34px;box-shadow:0 4px 14px rgba(47,79,216,.4)}
+.pgnav button{border:2px solid #9fb0d8;background:#eef2ff;padding:8px 18px;font-size:15px}
+.pgnav button:hover:not(:disabled){background:#d3dcfa;border-color:var(--brand)}
+.foot-note{max-width:620px;margin:14px auto 0;color:var(--mut);font-size:14.5px}
+footer .back{margin:10px 0 0}
+.drop .big{font-size:22px!important}
+.drop b{font-size:28px!important;line-height:1.25;margin:6px 0 4px!important}
+.drop span{font-size:15px!important}
+@media (max-width:520px){.drop b{font-size:22px!important}}
+.opt .row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 22px;margin-bottom:10px}
+.opt .row>div{flex:0 0 auto;min-width:0}
+.opt .row label{font-size:13px;margin-bottom:3px}
+.opt .row input[type=color]{width:90px!important;height:44px!important;padding:2px!important;border-radius:10px!important;cursor:pointer}
+.opt .row input[type=range]{width:150px}
 </style>
 </head>
 <body>
@@ -96,11 +126,26 @@ footer img{height:36px;display:block;margin:0 auto 6px}
 <header class="hero">
   <a class="hlogo" href="./" aria-label="Home"><img src="logo.png" width="131" height="60" alt="Work BD logo"></a>
   <h1>📝 Edit PDF</h1>
-  <p>Add text, drawings, highlights, white-out boxes and images to a PDF. Runs in your browser, your file is never uploaded.</p>
-  <a class="back" href="./">← All tools</a>
 </header>
 <main>
 <div class="panel">
+    <div class="opt">
+      <small id="nofile" style="margin:0 0 10px;font-weight:600;color:#7a4b00">⬇ First choose a PDF below, then use these tools.</small>
+      <div class="tabs2" id="tools" style="flex-wrap:wrap">
+        <button type="button" data-t="edit">📝 Edit</button>
+        <button type="button" data-t="text">T Text</button>
+        <button type="button" data-t="draw">✏️ Draw</button>
+        <button type="button" data-t="hl" class="on">🖍️ Highlight</button>
+      </div>
+      <div class="row">
+        <div id="g-size" style="display:none"><label for="fsz">Text size: <span id="fszv">18</span></label><input type="range" id="fsz" min="8" max="72" value="18"></div>
+        <div id="g-col"><label for="col">Color</label><input type="color" id="col" value="#fff200" style="width:100%;height:40px;border:1.5px solid #cfd8f6;border-radius:10px;padding:2px"></div>
+        <div id="g-pen"><label for="pen">Brush size: <span id="penv">18</span></label><input type="range" id="pen" min="1" max="40" value="18"></div>
+      </div>
+      <input type="file" id="imgf" accept="image/png,image/jpeg" hidden>
+      <small id="hint">Highlight: press and drag over the text with the round brush. Change the thickness with Brush size.</small>
+      <div class="acts" style="margin-top:10px"><button type="button" class="btn ghost" id="undo">↶ Undo</button><button type="button" class="btn ghost" id="clearpg">Clear this page</button></div>
+    </div>
   <div id="empty">
     <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose a PDF file">
       <div class="big">📄</div>
@@ -114,31 +159,16 @@ footer img{height:36px;display:block;margin:0 auto 6px}
       <div><div class="nm" id="fname"></div><div class="mt" id="fmeta"></div></div>
       <button class="btn ghost" id="change" type="button">Change file</button>
     </div>
-    <div class="opt">
-      <div class="tabs2" id="tools" style="flex-wrap:wrap">
-        <button type="button" data-t="text" class="on">T Text</button>
-        <button type="button" data-t="draw">✏️ Draw</button>
-        <button type="button" data-t="hl">🖍️ Highlight</button>
-        <button type="button" data-t="white">⬜ Cover (white)</button>
-        <button type="button" data-t="img">🖼️ Image</button>
-      </div>
-      <div class="row">
-        <div id="g-size"><label for="fsz">Text size: <span id="fszv">18</span></label><input type="range" id="fsz" min="8" max="72" value="18"></div>
-        <div><label for="col">Color</label><input type="color" id="col" value="#e11d48" style="width:100%;height:40px;border:1.5px solid #cfd8f6;border-radius:10px;padding:2px"></div>
-        <div id="g-pen"><label for="pen">Pen width: <span id="penv">3</span></label><input type="range" id="pen" min="1" max="14" value="3"></div>
-      </div>
-      <input type="file" id="imgf" accept="image/png,image/jpeg" hidden>
-      <small id="hint">Text: click on the page where you want to type. Works with Bangla and other languages too.</small>
-      <div class="acts" style="margin-top:10px"><button type="button" class="btn ghost" id="undo">↶ Undo</button><button type="button" class="btn ghost" id="clearpg">Clear this page</button></div>
-    </div>
     <div class="pgnav"><button type="button" id="prev">‹ Prev</button><span id="pginfo"></span><button type="button" id="next">Next ›</button></div>
-    <div style="text-align:center;overflow:auto"><div class="stage" id="stage" style="cursor:crosshair"><canvas id="pv"></canvas><canvas id="ov" style="position:absolute;left:0;top:0"></canvas></div></div>
+    <div style="text-align:center;overflow:auto"><div class="stage" id="stage" style="cursor:none"><canvas id="pv"></canvas><canvas id="hc" style="position:absolute;left:0;top:0;mix-blend-mode:multiply;pointer-events:none"></canvas><canvas id="ov" style="position:absolute;left:0;top:0"></canvas></div></div>
     <div class="acts" style="justify-content:center;margin-top:12px"><button class="btn" id="go" type="button">Save edited PDF</button></div>
     <div class="bar" id="bar"><i id="barfill"></i></div>
     <div class="status" id="st" role="status" aria-live="polite" style="text-align:center"></div>
   </div></div>
 </main>
-<footer><img src="logo.png" width="79" height="36" alt="Work BD logo" loading="lazy"><div>&copy; 2026 All Rights Reserved.</div></footer>
+<footer><img src="logo.png" width="79" height="36" alt="Work BD logo" loading="lazy"><div>&copy; 2026 All Rights Reserved.</div>
+<p class="foot-note">Add text, drawings, highlights, white-out boxes and images to a PDF. Runs in your browser, your file is never uploaded.</p>
+<a class="back" href="./">← All tools</a></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
@@ -198,7 +228,7 @@ async function load(file,pw){
     const b=new Uint8Array(await file.arrayBuffer());
     const doc=await pdfjsLib.getDocument(typeof LOAD_OPTS==='function'?LOAD_OPTS(b,pw):{data:b.slice()}).promise;
     bytes=b;pdoc=doc;total=doc.numPages;name=file.name.replace(/\.pdf$/i,'')||'document';
-    $('#empty').hidden=true;$('#work').hidden=false;
+    $('#empty').hidden=true;$('#work').hidden=false;$('#nofile').hidden=true;
     $('#fname').textContent=file.name;
     $('#fmeta').textContent=total+' page'+(total>1?'s':'')+' · '+fmtSize(file.size);
     msg('');
@@ -210,13 +240,15 @@ async function load(file,pw){
   }
 }
 
-let cur=1,tool='text',ops={},W=0,H=0,pending=null,drag=null,imgObj=null;
-const ov=$('#ov'),pv=$('#pv'),ox=ov.getContext('2d');
+const penW={draw:3,hl:18},HL_A=.5;
+let cur=1,tool='hl',ops={},W=0,H=0,pending=null,drag=null,imgObj=null;
+const ov=$('#ov'),pv=$('#pv'),hc=$('#hc'),ox=ov.getContext('2d'),hx=hc.getContext('2d');
 function pgOps(){return ops[cur]||(ops[cur]=[])}
-const hints={text:'Text: click on the page where you want to type. Works with Bangla and other languages too.',draw:'Draw: press and drag to write or draw freehand.',hl:'Highlight: drag a rectangle over the text to highlight.',white:'Cover: drag a rectangle to hide something with white.',img:'Image: choose a picture, then click where to place it (centered on the click).'};
-$('#tools').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;tool=b.dataset.t;
+const hints={edit:'Edit: click any existing text in the PDF to change it. Press Esc or click outside when done. Drag the ✥ handle to move it. (Original font is replaced with a similar one.)',text:'Text: click anywhere on the page and start typing, just like in Word. Click existing text to edit it, drag the ✥ handle to move it, press Esc or click outside when done. Works with Bangla too.',draw:'Draw: press and drag to write or draw freehand.',hl:'Highlight: press and drag over the text with the round brush. Change the thickness with Brush size.',white:'Cover: drag a rectangle to hide something with white.',img:'Image: choose a picture, then click where to place it (centered on the click).'};
+$('#tools').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;if(tool==='draw'||tool==='hl')penW[tool]=+$('#pen').value;tool=b.dataset.t;
   document.querySelectorAll('#tools button').forEach(x=>x.classList.toggle('on',x===b));
-  $('#hint').textContent=hints[tool];$('#g-size').style.display=(tool==='text'||tool==='img')?'':'none';$('#g-pen').style.display=tool==='draw'?'':'none';
+  $('#hint').textContent=hints[tool];$('#stage').style.cursor=tool==='text'?'text':tool==='edit'?'pointer':(tool==='hl'||tool==='draw')?'none':'crosshair';$('#g-col').style.display=tool==='edit'?'none':'';$('#g-size').style.display=(tool==='text'||tool==='img')?'':'none';$('#g-pen').style.display=(tool==='draw'||tool==='hl')?'':'none';
+  if(tool==='draw'||tool==='hl'){$('#pen').max=tool==='hl'?40:14;$('#pen').value=penW[tool];$('#penv').textContent=penW[tool];$('#g-pen label').firstChild.textContent=tool==='hl'?'Brush size: ':'Pen width: '}
   $('#g-size label').firstChild.textContent=tool==='img'?'Image width %: ':'Text size: ';
   if(tool==='img'){$('#fsz').min=5;$('#fsz').max=100;if(+$('#fsz').value>100||+$('#fsz').value<5)$('#fsz').value=30;$('#fszv').textContent=$('#fsz').value;imgObj?null:$('#imgf').click()}
   else{$('#fsz').min=8;$('#fsz').max=72;if(+$('#fsz').value>72)$('#fsz').value=18;$('#fszv').textContent=$('#fsz').value}};
@@ -226,39 +258,38 @@ $('#imgf').onchange=async()=>{const f=$('#imgf').files[0];if(!f)return;
   const k=document.createElement('canvas');k.width=im.naturalWidth;k.height=im.naturalHeight;k.getContext('2d').drawImage(im,0,0);imgObj={c:k,url:k.toDataURL('image/png')};msg('')};
 function pos(e){const r=ov.getBoundingClientRect();return[(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height]}
 function textCanvas(t,size,color,scale){ // size in PDF points; scale = pixels per point
-  const lines=t.split('\n'),fp=size*scale,c=document.createElement('canvas'),x=c.getContext('2d');
-  x.font=fp+'px "Noto Sans Bengali","Kalpurush","Nirmala UI",Helvetica,Arial,sans-serif';
-  const w=Math.max(...lines.map(l=>x.measureText(l).width))+4,h=lines.length*fp*1.3+4;
+  const lines=t.split('\n'),fp=size*scale,pad=fp*.12,F=fp+'px "Noto Sans Bengali","Kalpurush","Nirmala UI",Helvetica,Arial,sans-serif';
+  const c=document.createElement('canvas'),x=c.getContext('2d');
+  x.font=F;
+  const w=Math.max(...lines.map(l=>x.measureText(l).width))+pad*2,h=lines.length*fp*1.3+pad*2;
   c.width=Math.ceil(w);c.height=Math.ceil(h);
-  x.font=fp+'px "Noto Sans Bengali","Kalpurush","Nirmala UI",Helvetica,Arial,sans-serif';x.fillStyle=color;x.textBaseline='top';
-  lines.forEach((l,i)=>x.fillText(l,2,2+i*fp*1.3));return c;
+  x.font=F;x.fillStyle=color;x.textBaseline='top';
+  lines.forEach((l,i)=>x.fillText(l,pad,pad+fp*.15+i*fp*1.3));return c;
 }
 function redraw(){
-  ox.clearRect(0,0,ov.width,ov.height);
+  ox.clearRect(0,0,ov.width,ov.height);hx.clearRect(0,0,hc.width,hc.height);
   for(const o of pgOps()){
-    if(o.t==='draw'){ox.strokeStyle=o.col;ox.lineWidth=o.w*ov.width/W0;ox.lineCap=ox.lineJoin='round';ox.beginPath();o.pts.forEach((p,i)=>{const X=p[0]*ov.width,Y=p[1]*ov.height;i?ox.lineTo(X,Y):ox.moveTo(X,Y)});if(o.pts.length===1)ox.lineTo(o.pts[0][0]*ov.width+.1,o.pts[0][1]*ov.height);ox.stroke()}
-    else if(o.t==='hl'){ox.fillStyle=o.col;ox.globalAlpha=.35;ox.fillRect(o.x*ov.width,o.y*ov.height,o.w*ov.width,o.h*ov.height);ox.globalAlpha=1}
+    if(o.cover){ox.fillStyle=o.cover.col;ox.fillRect(o.cover.x*ov.width,o.cover.y*ov.height,o.cover.w*ov.width,o.cover.h*ov.height)}
+    if(E&&o===E.op)continue;
+    if(o.t==='draw'||o.t==='hl'){const g=o.t==='hl'?hx:ox;g.strokeStyle=o.col;g.lineWidth=o.w*ov.width/W0;g.lineCap=g.lineJoin='round';g.beginPath();o.pts.forEach((p,i)=>{const X=p[0]*ov.width,Y=p[1]*ov.height;i?g.lineTo(X,Y):g.moveTo(X,Y)});if(o.pts.length===1)g.lineTo(o.pts[0][0]*ov.width+.1,o.pts[0][1]*ov.height);g.stroke()}
     else if(o.t==='white'){ox.fillStyle='#fff';ox.fillRect(o.x*ov.width,o.y*ov.height,o.w*ov.width,o.h*ov.height)}
     else if(o.t==='text'){const c=textCanvas(o.text,o.size,o.col,ov.width/W0);ox.drawImage(c,o.x*ov.width,o.y*ov.height)}
     else if(o.t==='img'){const w=o.w*ov.width;ox.drawImage(o.c,o.x*ov.width,o.y*ov.height,w,w*o.c.height/o.c.width)}
   }
-  if(drag&&(tool==='hl'||tool==='white')){ox.fillStyle=tool==='hl'?$('#col').value:'#fff';ox.globalAlpha=tool==='hl'?.35:1;ox.strokeStyle='#2f4fd8';
+  if(drag&&!drag.o&&tool==='white'){ox.fillStyle='#fff';ox.globalAlpha=1;ox.strokeStyle='#2f4fd8';
     const a=Math.min(drag.x0,drag.x1),b=Math.min(drag.y0,drag.y1);ox.fillRect(a*ov.width,b*ov.height,Math.abs(drag.x1-drag.x0)*ov.width,Math.abs(drag.y1-drag.y0)*ov.height);ox.globalAlpha=1;ox.strokeRect(a*ov.width,b*ov.height,Math.abs(drag.x1-drag.x0)*ov.width,Math.abs(drag.y1-drag.y0)*ov.height)}
 }
 let W0=1;
 ov.onpointerdown=e=>{
   const [x,y]=pos(e);
-  if(tool==='text'){
-    const t=prompt('Type your text (for more lines, add another text item):','');
-    if(t&&t.trim()){pgOps().push({t:'text',text:t,x,y,size:+$('#fsz').value,col:$('#col').value});redraw()}return;
-  }
+  if(tool==='text'||tool==='edit')return;
   if(tool==='img'){
     if(!imgObj){$('#imgf').click();return}
     const w=+$('#fsz').value/100,h=w*ov.width*imgObj.c.height/imgObj.c.width/ov.height;
     pgOps().push({t:'img',c:imgObj.c,url:imgObj.url,x:Math.min(Math.max(0,x-w/2),1-w),y:Math.min(Math.max(0,y-h/2),Math.max(0,1-h)),w});redraw();return;
   }
   ov.setPointerCapture(e.pointerId);
-  if(tool==='draw'){drag={o:{t:'draw',pts:[[x,y]],col:$('#col').value,w:+$('#pen').value}};pgOps().push(drag.o)}
+  if(tool==='draw'||tool==='hl'){drag={o:{t:tool,pts:[[x,y]],col:$('#col').value,w:+$('#pen').value}};pgOps().push(drag.o)}
   else drag={x0:x,y0:y,x1:x,y1:y};
   e.preventDefault();redraw();
 };
@@ -269,16 +300,162 @@ ov.onpointerup=ov.onpointercancel=e=>{
     if(w>.004&&h>.004)pgOps().push({t:tool,x,y,w,h,col:$('#col').value})}
   drag=null;redraw();
 };
+
+/* ---- Word-like inline text editing ---- */
+let E=null;
+function startEdit(op,cx,cy){
+  const r=ov.getBoundingClientRect(),size=op?op.size:+$('#fsz').value,col=op?op.col:$('#col').value,fpx=size*r.width/W0;
+  const left=op?op.x*r.width:cx-r.left,top=op?op.y*r.height:(cy-r.top)-(fpx*.12+fpx*1.3/2);
+  const box=document.createElement('div');box.className='tbox';box.style.left=left+'px';box.style.top=top+'px';
+  const grip=document.createElement('span');grip.className='tgrip';grip.textContent='✥';grip.title='Drag to move';grip.contentEditable='false';
+  const ed=document.createElement('div');ed.className='ted';
+  try{ed.contentEditable='plaintext-only'}catch(_){}
+  if(ed.contentEditable!=='plaintext-only')ed.contentEditable='true';
+  ed.spellcheck=false;ed.style.fontSize=fpx+'px';ed.style.color=col;ed.style.caretColor=col;
+  ed.textContent=op?op.text:'';
+  box.appendChild(grip);box.appendChild(ed);$('#stage').appendChild(box);
+  E={op,box,ed,size,col,page:cur};
+  ed.onblur=commitEdit;
+  ed.onkeydown=ev=>{if(ev.key==='Escape'||(ev.key==='Enter'&&(ev.ctrlKey||ev.metaKey))){ev.preventDefault();ed.blur()}};
+  ed.onpaste=ev=>{ev.preventDefault();const t=(ev.clipboardData||window.clipboardData).getData('text');document.execCommand('insertText',false,t.replace(/\r/g,''))};
+  grip.onmousedown=ev=>ev.preventDefault();
+  grip.onpointerdown=ev=>{ev.preventDefault();grip.setPointerCapture(ev.pointerId);
+    const sx=ev.clientX,sy=ev.clientY,l0=parseFloat(box.style.left),t0=parseFloat(box.style.top);
+    grip.onpointermove=m=>{box.style.left=(l0+m.clientX-sx)+'px';box.style.top=(t0+m.clientY-sy)+'px'};
+    grip.onpointerup=grip.onpointercancel=()=>{grip.onpointermove=grip.onpointerup=grip.onpointercancel=null;ed.focus()}};
+  redraw();ed.focus();
+  const sel=getSelection();let range=null;
+  if(op&&cx!=null){
+    if(document.caretRangeFromPoint)range=document.caretRangeFromPoint(cx,cy);
+    else if(document.caretPositionFromPoint){const p=document.caretPositionFromPoint(cx,cy);if(p){range=document.createRange();range.setStart(p.offsetNode,p.offset);range.collapse(true)}}
+  }
+  if(!range||!ed.contains(range.startContainer)){range=document.createRange();range.selectNodeContents(ed);range.collapse(false)}
+  sel.removeAllRanges();sel.addRange(range);
+}
+function commitEdit(){
+  if(!E)return;const e=E;E=null;
+  const r=ov.getBoundingClientRect(),text=e.ed.innerText.replace(/\u200b/g,'').replace(/\n+$/,'');
+  const nx=parseFloat(e.box.style.left)/r.width,ny=parseFloat(e.box.style.top)/r.height;
+  e.box.remove();
+  const list=ops[e.page]||(ops[e.page]=[]);
+  if(text.trim()){
+    if(e.op){e.op.text=text;e.op.x=nx;e.op.y=ny}
+    else list.push({t:'text',text,x:nx,y:ny,size:e.size,col:e.col});
+  }else if(e.op){if(e.op.cover)e.op.text='';else{const i=list.indexOf(e.op);if(i>=0)list.splice(i,1)}}
+  if(e.op&&e.op.cover&&e.op.text===e.op.blk.str&&Math.abs(e.op.x-e.op.x0)<.002&&Math.abs(e.op.y-e.op.y0)<.002){const i=list.indexOf(e.op);if(i>=0)list.splice(i,1)}
+  if(e.page===cur)redraw();
+}
+ov.onclick=async e=>{
+  if(tool!=='text'&&tool!=='edit')return;
+  const [x,y]=pos(e),list=pgOps(),pageAt=cur;
+  for(let i=list.length-1;i>=0;i--){const o=list[i];if(o.t!=='text')continue;
+    const c=textCanvas(o.text,o.size,o.col,ov.width/W0),w=c.width/ov.width,h=c.height/ov.height;
+    if(x>=o.x&&x<=o.x+w&&y>=o.y&&y<=o.y+h){startEdit(o,e.clientX,e.clientY);return}}
+  if(tool==='edit'){
+    await getBlocks(pageAt);if(pageAt!==cur||tool!=='edit')return;
+    const b=findBlock(x,y);if(!b)return;
+    const col=sampleColors(b),op={t:'text',text:b.str,x:b.tx,y:b.ty,x0:b.tx,y0:b.ty,size:b.size,col:col.fg,cover:{x:b.c.x,y:b.c.y,w:b.c.w,h:b.c.h,col:col.bg},blk:b};
+    list.push(op);startEdit(op,e.clientX,e.clientY);return;
+  }
+  startEdit(null,e.clientX,e.clientY);
+};
+
+/* ---- Edit tool: find the existing text lines of the page ---- */
+const blocks={};
+async function getBlocks(n){
+  if(blocks[n])return blocks[n];
+  const pg=await pdoc.getPage(n),v0=pg.getViewport({scale:1}),tc=await pg.getTextContent(),items=[];
+  for(const it of tc.items){
+    if(typeof it.str!=='string'||!it.str.length)continue;
+    const m=pdfjsLib.Util.transform(v0.transform,it.transform),size=Math.hypot(m[2],m[3]);
+    if(!size||Math.abs(m[1])>.05*size||Math.abs(m[2])>.05*size)continue; // horizontal text only
+    items.push({s:it.str,x:m[4],b:m[5],w:it.width,size});
+  }
+  const lines=[];let c=null;
+  for(const it of items){
+    if(c){
+      const gap=it.x-(c.x+c.w);
+      if(Math.abs(it.b-c.b)<c.size*.25&&Math.abs(it.size-c.size)<c.size*.2&&gap>-c.size*.3&&gap<c.size*.7){
+        if(gap>c.size*.15&&!/\s$/.test(c.s)&&!/^\s/.test(it.s))c.s+=' ';
+        c.s+=it.s;c.w=it.x+it.w-c.x;continue;
+      }
+      lines.push(c);
+    }
+    c={s:it.s,x:it.x,b:it.b,w:it.w,size:it.size};
+  }
+  if(c)lines.push(c);
+  const Wp=v0.width,Hp=v0.height,out=[];
+  for(const l of lines){
+    const str=l.s.replace(/\s+$/,'').replace(/^\s+/,'');if(!str)continue;
+    const lead=l.s.length-l.s.replace(/^\s+/,'').length,x=l.x+(lead?l.w*lead/l.s.length:0),pad=.12*l.size;
+    const cx=x-l.size*.12,cy=l.b-l.size*.92,cw=(l.x+l.w-x)+l.size*.24,ch=l.size*1.18;
+    out.push({str,size:l.size,
+      tx:(x-pad)/Wp,ty:(l.b-1.07*l.size)/Hp,
+      c:{x:Math.max(0,cx/Wp),y:Math.max(0,cy/Hp),w:cw/Wp,h:ch/Hp}});
+  }
+  return blocks[n]=out;
+}
+function findBlock(x,y){
+  const used=pgOps(),list=blocks[cur]||[];
+  for(const b of list){
+    if(x>=b.c.x&&x<=b.c.x+b.c.w&&y>=b.c.y&&y<=b.c.y+b.c.h&&!used.some(o=>o.blk===b))return b;
+  }
+  return null;
+}
+function sampleColors(b){ // background = most common colour, text colour = pixel farthest from it
+  try{
+    const W=pv.width,H=pv.height,x=Math.max(0,Math.floor(b.c.x*W)),y=Math.max(0,Math.floor(b.c.y*H)),
+      w=Math.max(1,Math.min(W-x,Math.ceil(b.c.w*W))),h=Math.max(1,Math.min(H-y,Math.ceil(b.c.h*H)));
+    const d=pv.getContext('2d').getImageData(x,y,w,h).data,hist={};let best=null,bn=0;
+    for(let i=0;i<d.length;i+=4){const k=(d[i]>>3)+','+(d[i+1]>>3)+','+(d[i+2]>>3);const e=hist[k]||(hist[k]={n:0,r:d[i],g:d[i+1],b:d[i+2]});e.n++;if(e.n>bn){bn=e.n;best=e}}
+    let fg=best,fd=-1;
+    for(let i=0;i<d.length;i+=4){const dd=(d[i]-best.r)**2+(d[i+1]-best.g)**2+(d[i+2]-best.b)**2;if(dd>fd){fd=dd;fg={r:d[i],g:d[i+1],b:d[i+2]}}}
+    const hx2=c=>'#'+[c.r,c.g,c.b].map(v=>v.toString(16).padStart(2,'0')).join('');
+    return{bg:hx2(best),fg:fd>1800?hx2(fg):'#000000'};
+  }catch(_){return{bg:'#ffffff',fg:'#000000'}}
+}
+const hov=document.createElement('div');
+hov.style.cssText='position:absolute;pointer-events:none;display:none;z-index:4;border:1.5px dashed #2f4fd8;background:rgba(47,79,216,.10);border-radius:2px';
+$('#stage').appendChild(hov);
+ov.addEventListener('pointermove',e=>{
+  if(tool!=='edit'||E){hov.style.display='none';return}
+  if(!blocks[cur]){getBlocks(cur);hov.style.display='none';return}
+  const [x,y]=pos(e),b=findBlock(x,y);
+  if(!b){hov.style.display='none';return}
+  const r=ov.getBoundingClientRect();
+  hov.style.left=b.c.x*r.width+'px';hov.style.top=b.c.y*r.height+'px';hov.style.width=b.c.w*r.width+'px';hov.style.height=b.c.h*r.height+'px';hov.style.display='block';
+});
+ov.addEventListener('pointerleave',()=>{hov.style.display='none'});
+$('#tools').addEventListener('click',()=>{hov.style.display='none';if(tool==='edit'&&pdoc)getBlocks(cur)});
+
+/* ---- round brush cursor: circle size = brush size ---- */
+const bc=document.createElement('div');bc.id='brushcur';$('#stage').appendChild(bc);
+let lastPt=null;
+function updCur(){
+  if(!lastPt||(tool!=='hl'&&tool!=='draw')){bc.style.display='none';return}
+  const r=ov.getBoundingClientRect(),d=Math.max(4,(+$('#pen').value)*r.width/W0),h=$('#col').value,
+    rgb=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)).join(',');
+  bc.style.width=bc.style.height=d+'px';
+  bc.style.left=(lastPt[0]-r.left)+'px';bc.style.top=(lastPt[1]-r.top)+'px';
+  bc.style.background='rgba('+rgb+','+(tool==='hl'?HL_A:1)+')';
+  bc.style.display='block';
+}
+ov.addEventListener('pointermove',e=>{lastPt=[e.clientX,e.clientY];updCur()});
+ov.addEventListener('pointerdown',e=>{lastPt=[e.clientX,e.clientY];updCur()});
+ov.addEventListener('pointerleave',()=>{lastPt=null;updCur()});
+$('#pen').addEventListener('input',updCur);
+$('#col').addEventListener('input',updCur);
+$('#tools').addEventListener('click',updCur);
 $('#undo').onclick=()=>{pgOps().pop();redraw()};
 $('#clearpg').onclick=()=>{ops[cur]=[];redraw()};
 async function render(){
   const pg=await pdoc.getPage(cur),v0=pg.getViewport({scale:1}),w=Math.min(680,$('.panel').clientWidth-44),sc=w/v0.width,v=pg.getViewport({scale:sc});
-  W0=v0.width;pv.width=ov.width=Math.round(v.width);pv.height=ov.height=Math.round(v.height);
+  W0=v0.width;pv.width=ov.width=hc.width=Math.round(v.width);pv.height=ov.height=hc.height=Math.round(v.height);
   await pg.render({canvasContext:pv.getContext('2d'),viewport:v}).promise;
   $('#pginfo').textContent='Page '+cur+' of '+total;$('#prev').disabled=cur<=1;$('#next').disabled=cur>=total;redraw();
 }
 $('#prev').onclick=()=>{if(cur>1){cur--;render()}};$('#next').onclick=()=>{if(cur<total){cur++;render()}};
-async function onLoaded(){cur=1;ops={};$('#g-pen').style.display='none';await render()}
+async function onLoaded(){cur=1;ops={};for(const k in blocks)delete blocks[k];await render()}
 function hexc(h){return PDFLib.rgb(parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255)}
 $('#go').onclick=async()=>{
   if(busy||!bytes)return;
@@ -289,13 +466,17 @@ $('#go').onclick=async()=>{
     for(const [n,list] of Object.entries(ops)){
       const pg=pages[n-1];if(!pg||!list.length)continue;const {width:PW,height:PH}=pg.getSize();
       for(const o of list){
+        if(o.cover)pg.drawRectangle({x:o.cover.x*PW,y:PH-(o.cover.y+o.cover.h)*PH,width:o.cover.w*PW,height:o.cover.h*PH,color:hexc(o.cover.col)});
         if(o.t==='white')pg.drawRectangle({x:o.x*PW,y:PH-(o.y+o.h)*PH,width:o.w*PW,height:o.h*PH,color:PDFLib.rgb(1,1,1)});
-        else if(o.t==='hl')pg.drawRectangle({x:o.x*PW,y:PH-(o.y+o.h)*PH,width:o.w*PW,height:o.h*PH,color:hexc(o.col),opacity:.35});
+        else if(o.t==='hl'){
+          const wd=o.w*PW/W0,P=o.pts.map(p=>[p[0]*PW,p[1]*PH]);if(P.length===1)P.push([P[0][0]+.01,P[0][1]]);
+          pg.drawSvgPath('M'+P.map(p=>p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' L'),Object.assign({x:0,y:PH,borderColor:hexc(o.col),borderWidth:wd,borderLineCap:PDFLib.LineCapStyle.Round},(PDFLib.BlendMode&&PDFLib.BlendMode.Multiply)?{borderOpacity:1,blendMode:PDFLib.BlendMode.Multiply}:{borderOpacity:.4}));
+        }
         else if(o.t==='draw'){
           const pts=o.pts,wd=o.w*PW/W0;
           if(pts.length===1)pg.drawCircle({x:pts[0][0]*PW,y:PH-pts[0][1]*PH,size:wd/2,color:hexc(o.col)});
           for(let i=1;i<pts.length;i++)pg.drawLine({start:{x:pts[i-1][0]*PW,y:PH-pts[i-1][1]*PH},end:{x:pts[i][0]*PW,y:PH-pts[i][1]*PH},thickness:wd,color:hexc(o.col),lineCap:PDFLib.LineCapStyle.Round});
-        }else if(o.t==='text'){
+        }else if(o.t==='text'&&o.text){
           const c=textCanvas(o.text,o.size,o.col,3),png=await doc.embedPng(c.toDataURL('image/png'));
           const w=c.width/3,h=c.height/3;pg.drawImage(png,{x:o.x*PW,y:PH-o.y*PH-h,width:w,height:h});
         }else if(o.t==='img'){
