@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF to Word Converter – Free, Keeps Every Line in Place | Work BD</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="description" content="Convert PDF to an editable Word (.docx) file for free in your browser. Every line stays on its own line, tables and pictures are kept. Your files are never uploaded.">
+<link rel="canonical" href="https://work-bd.github.io/pdf-to-word.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#2f4fd8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Work BD">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="PDF to Word Converter – Free, Keeps Every Line in Place | Work BD">
+<meta property="og:description" content="Convert PDF to an editable Word (.docx) file for free in your browser. Every line stays on its own line, tables and pictures are kept. Your files are never uploaded.">
+<meta property="og:url" content="https://work-bd.github.io/pdf-to-word.html">
+<meta property="og:image" content="https://work-bd.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDF to Word Converter – Free, Keeps Every Line in Place | Work BD">
+<meta name="twitter:description" content="Convert PDF to an editable Word (.docx) file for free in your browser. Every line stays on its own line, tables and pictures are kept. Your files are never uploaded.">
+<meta name="twitter:image" content="https://work-bd.github.io/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://work-bd.github.io/pdf-to-word.html#app","name":"Work BD – PDF to Word","url":"https://work-bd.github.io/pdf-to-word.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Work BD","item":"https://work-bd.github.io/"},{"@type":"ListItem","position":2,"name":"PDF to Word","item":"https://work-bd.github.io/pdf-to-word.html"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<style>
+:root{--ink:#0f172a;--mut:#5b6478;--line:#e2e8f0;--bg:#C2D7EC;--brand:#2f4fd8;--brand2:#4f46e5;--r:16px;--shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:linear-gradient(180deg,#d3e3f4 0,#C2D7EC 360px);background-attachment:fixed;color:var(--ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.promo{background:linear-gradient(90deg,#1d4ed8,#4338ca);color:#fff;text-align:center;padding:10px 14px;font-weight:600;font-size:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.promo a,.btn-ext{background:#fbbf24;color:#1c1917;padding:6px 16px;border-radius:99px;text-decoration:none;font-weight:700;font-size:13px;transition:transform .15s,box-shadow .15s}
+.promo a:hover,.btn-ext:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.18)}
+header.hero{text-align:center;padding:48px 16px 14px}
+h1{margin:0;font-size:clamp(30px,5.2vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.hero p{max-width:600px;margin:12px auto 0;color:var(--mut);font-size:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:20px 16px 8px}
+.tabs button{border:1px solid rgba(15,23,42,.08);background:rgba(255,255,255,.75);backdrop-filter:blur(6px);color:var(--ink);padding:9px 18px;border-radius:99px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s}
+.tabs button:hover{background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.08)}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 14px rgba(15,23,42,.25)}
+main{max-width:1160px;margin:0 auto;padding:12px 16px 56px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:var(--r);padding:22px 18px 20px;text-align:left;font:inherit;color:inherit;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s,border-color .18s}
+a.card{display:block;text-decoration:none}
+.card .ic{font-size:30px;line-height:1;height:48px;display:flex;align-items:center;justify-content:center}
+.card .ic svg{display:block;height:40px;width:auto}
+.card .ic svg.s95{height:38px}
+.card h3{text-align:center}
+#dt svg{height:26px;width:auto;vertical-align:middle}
+.card .ic img{height:44px;width:auto;display:block}
+.card h3{margin:12px 0 4px;font-size:16.5px;font-weight:700;letter-spacing:-.01em}
+.card p{margin:0;font-size:13.5px;color:var(--mut)}
+.card.live{cursor:pointer}
+.card.live:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(15,23,42,.14)}
+.card.live:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.card.soon{opacity:.6}
+.tag{position:absolute;top:12px;right:12px;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;background:#eef2f7;color:var(--mut)}
+.live .tag{background:#dcfce7;color:#166534}
+[data-cat=organize]{--c:#ef4444}[data-cat=optimize]{--c:#22c55e}[data-cat=convert]{--c:#3b6df0}
+[data-cat=edit]{--c:#8b5cf6}[data-cat=security]{--c:#f59e0b}[data-cat=ai]{--c:#06b6d4}
+dialog{border:0;border-radius:22px;padding:0;width:min(580px,94vw);max-height:92vh;overflow:auto;box-shadow:0 30px 80px rgba(10,20,50,.4);color:var(--ink);font-family:inherit}
+dialog::backdrop{background:rgba(15,23,42,.55);backdrop-filter:blur(4px)}
+.flogo{display:inline-block;margin-bottom:6px}.flogo img{height:36px;width:auto;display:block}
+.hlogo{display:inline-block;margin-bottom:10px}.hlogo img{height:60px;width:auto;display:block}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:26px;border-top:1px solid var(--line);background:rgba(255,255,255,.9)}
+[hidden]{display:none!important}
+@media (max-width:520px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:16px 10px 14px}.card h3{font-size:14.5px}.dh{padding:20px 18px 4px}.db{padding:12px 18px 20px}header.hero{padding-top:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.flinks{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+.flinks button,.flinks a{font:inherit;font-size:14px;font-weight:700;color:#2f4fd8;background:#fff;border:1.5px solid #cfd8f6;border-radius:99px;padding:8px 18px;cursor:pointer;text-decoration:none}
+.flinks button:hover,.flinks a:hover{border-color:#2f4fd8;background:#f1f4ff}
+#shd{border:0;border-radius:16px;padding:20px;width:min(360px,92vw);box-shadow:0 20px 60px rgba(10,20,50,.35)}
+#shd::backdrop{background:rgba(15,20,40,.55)}#shd h3{margin:0 0 4px;font-size:18px}#shd p{margin:0 0 12px;font-size:13.5px;color:#5b6478}
+#shd .sg{display:grid;gap:8px}#shd .sg a,#shd .sg button{font:inherit;font-weight:700;font-size:15px;text-align:center;text-decoration:none;color:#fff;border:0;border-radius:10px;padding:11px;cursor:pointer}
+#shd .wa{background:#1fa855}#shd .fb{background:#1877f2}#shd .cp{background:#eef0f7!important;color:#0f172a!important}#shd .cx{background:none!important;color:#5b6478!important;font-weight:600!important}
+.dh{padding:24px 26px 6px}.dh h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.02em}.dh p{margin:6px 0 0;color:var(--mut);font-size:14px}
+.db{padding:14px 26px 26px}
+.pick{display:block;border:2px dashed #b4c0dc;border-radius:14px;padding:26px 20px;text-align:center;cursor:pointer;color:var(--mut);background:#f8faff;font-weight:600;transition:all .15s}
+.pick:hover{border-color:var(--brand);color:var(--brand);background:#eef2ff}
+.pick input{display:none}
+ul#fl{list-style:none;margin:12px 0;padding:0}
+ul#fl li{display:flex;gap:6px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:6px;font-size:14px;background:#fff}
+ul#fl li span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ul#fl small{color:var(--mut)}
+ul#fl button{border:0;background:#eef2f7;border-radius:8px;width:30px;height:30px;cursor:pointer;transition:background .15s}
+ul#fl button:hover{background:#dbe3ef}
+#op label{display:block;margin:12px 0 0;font-size:14px;font-weight:600}
+#op input[type=text],#op input[type=number],#op input[type=password],#op input[type=file],#op textarea,#op select{display:block;width:100%;margin-top:6px;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;background:#fff;transition:border-color .15s,box-shadow .15s}
+#op input:focus,#op textarea:focus,#op select:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px rgba(47,79,216,.18)}
+#op textarea{font:inherit;resize:vertical}
+#op .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#op label.ck{font-weight:400;display:flex;gap:8px;align-items:center}
+.row{display:flex;gap:10px;margin-top:18px}
+.row button{flex:1;padding:13px;border-radius:12px;border:0;font:inherit;font-weight:700;cursor:pointer;transition:transform .12s,box-shadow .12s,background .15s}
+.row button:active{transform:scale(.98)}
+#go{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:0 6px 16px rgba(47,79,216,.3)}#go:hover{box-shadow:0 8px 22px rgba(47,79,216,.4)}#go:disabled{opacity:.5;cursor:wait}
+#cl{background:#eef2f7;color:var(--ink);flex:0 0 96px!important}#cl:hover{background:#e2e8f0}
+#st{margin-top:14px;font-size:14px;border-radius:12px}
+#st.err{color:#b3261e;background:#fdecea;padding:12px}
+#st.ok{color:#166534;background:#e8f7ee;padding:12px}
+#st .df{max-height:240px;overflow:auto;font-size:13px;text-align:left;margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+#st .df div{padding:2px 0;border-bottom:1px dashed #eee;word-break:break-word}.df .ad{color:#166534}.df .rm{color:#b3261e}
+#st.ok .btn-ext{display:inline-block;margin-top:6px}
+
+.toolbox{max-width:640px;margin:8px auto 0;background:#fff;border-radius:22px;box-shadow:0 18px 50px rgba(15,23,42,.14);border:1px solid var(--line)}
+.toolbox .dh h2{display:flex;align-items:center;gap:8px}
+.back{display:block;text-align:center;margin:18px 0 0;font-weight:600;font-size:14px}.back a{color:var(--brand);text-decoration:none}.back a:hover{text-decoration:underline}
+#cl{text-align:center;white-space:nowrap;flex:0 0 120px!important}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2MPXSDJBBS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2MPXSDJBBS');
+</script>
+</head>
+<body>
+<div class="promo"><span>🚀 Fill out job application forms automatically in just 1 click!</span><a class="ext" href="https://chromewebstore.google.com/detail/all-job-form-auto-filler/mimopbkpobmlnfilfhlclpeiediabpeg" target="_blank" rel="noopener">Add to Chrome (free)</a></div>
+
+<header class="hero">
+  <a class="hlogo" href="./" aria-label="Home"><img class="brand" src="logo.png" width="131" height="60" alt="Work BD logo" fetchpriority="high"></a>
+  <h1>PDF to Word</h1>
+  <p>Convert a PDF to an editable Word file. Every line stays in its place. Your file is never uploaded, everything runs in your browser.</p>
+</header>
+
+<main>
+<section class="toolbox" id="dlg">
+  <div class="dh"><h2 id="dt">📘 PDF to Word</h2><p id="dd">Convert PDF to a Word (.docx) file</p></div>
+  <div class="db">
+    <label class="pick"><input type="file" id="fi" accept=".pdf,application/pdf"><span id="pk">Add file</span></label>
+    <ul id="fl"></ul>
+    <div id="op"></div>
+    <div class="row"><button id="go"></button><button id="cl" type="button">All tools</button></div>
+    <div id="st" role="status"></div>
+  </div>
+</section>
+</main>
+<footer><div class="flinks">
+    <a id="contact-b" href="#" hidden>✉️ Contact us</a>
+    <button type="button" id="share-b">🔗 Share</button>
+  </div>
+<a class="flogo" href="./" aria-label="Home"><img class="brand" src="logo.png" width="79" height="36" alt="Work BD logo" loading="lazy"></a><div>&copy; 2026 All Rights Reserved.</div></footer>
+<dialog id="shd">
+  <h3>🔗 Share Work BD</h3><p>Help others find free PDF and photo tools.</p>
+  <div class="sg">
+    <a class="wa" id="sh-wa" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="fb" id="sh-fb" target="_blank" rel="noopener">Facebook</a>
+    <button type="button" class="cp" id="sh-cp">📋 Copy link</button>
+    <button type="button" class="cp" id="sh-nat" hidden>📤 More options…</button>
+    <button type="button" class="cx" id="sh-x">Close</button>
+  </div>
+</dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
+<script>
+const CHROME_URL = 'https://chromewebstore.google.com/detail/all-job-form-auto-filler/mimopbkpobmlnfilfhlclpeiediabpeg';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sz = n => n > 1048576 ? (n/1048576).toFixed(2)+' MB' : Math.round(n/1024)+' KB';
+let cur = 'pdf_word', files = [];
+const track = (n, p) => { try { gtag('event', n, p); } catch(e){} };
+function msg(t, cls){ const s = $('#st'); s.className = cls||''; s.innerHTML = t; }
+function done(extra){
+  track('tool_success', {tool_name: cur});
+  msg(`🎉 Done! Your file has been downloaded. ${extra||''}<br><small>💡 Fill government and private job application forms in 1 click with our Chrome extension:</small><br><a class="btn-ext" href="${CHROME_URL}" target="_blank" rel="noopener">Add to Chrome</a>`, 'ok');
+}
+function dl(data, name, type){
+  const b = data instanceof Blob ? data : new Blob([data], {type: type||'application/octet-stream'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+const base = f => f.name.replace(/\.[^.]+$/, '');
+
+/* ===== PDF -> Word: layout-preserving page builder =====
+   - every visual line of the PDF stays its own line (no re-flowing, no re-ordering)
+   - real tables are rebuilt from the ruling lines (borders) drawn in the PDF, including merged cells
+   - columns without borders are kept in place with tab stops
+   - every PDF page becomes one Word section with the same page size                              */
+const P2W = (() => {
+  const TW = 20, tw = v => Math.round(v * TW), BN = /[ঀ-৿]/;
+  const mul = (m, n) => [m[0]*n[0]+m[2]*n[1], m[1]*n[0]+m[3]*n[1], m[0]*n[2]+m[2]*n[3], m[1]*n[2]+m[3]*n[3], m[0]*n[4]+m[2]*n[5]+m[4], m[1]*n[4]+m[3]*n[5]+m[5]];
+  const ap = (m, x, y) => [m[0]*x+m[2]*y+m[4], m[1]*x+m[3]*y+m[5]];
+
+  /* ---------- 1. ruling lines (table borders) from the page's drawing operators ---------- */
+  function getRules(ol, vt){
+    const O = pdfjsLib.OPS, hs = [], vs = [], imgs = [];
+    const strokeOps = new Set([O.stroke, O.closeStroke, O.fillStroke, O.eoFillStroke, O.closeFillStroke, O.closeEoFillStroke]);
+    const fillOps = new Set([O.fill, O.eoFill, O.fillStroke, O.eoFillStroke, O.closeFillStroke, O.closeEoFillStroke]);
+    let ctm = vt.slice(), stack = [], subs = [], cur = null;
+    const seg = (x1, y1, x2, y2) => {
+      const dx = Math.abs(x2-x1), dy = Math.abs(y2-y1);
+      if(dy <= 1 && dx >= 3) hs.push({y:(y1+y2)/2, x1:Math.min(x1,x2), x2:Math.max(x1,x2)});
+      else if(dx <= 1 && dy >= 3) vs.push({x:(x1+x2)/2, y1:Math.min(y1,y2), y2:Math.max(y1,y2)});
+    };
+    const paint = (stroke, fill) => {
+      for(const s of subs){
+        let p = s.pts; if(s.curved || p.length < 2) continue;
+        if(p.length > 2 && Math.abs(p[0][0]-p[p.length-1][0]) < .5 && Math.abs(p[0][1]-p[p.length-1][1]) < .5) p = p.slice(0, -1);
+        const ux = [...new Set(p.map(q => Math.round(q[0]*2)))], uy = [...new Set(p.map(q => Math.round(q[1]*2)))];
+        if(p.length === 4 && ux.length === 2 && uy.length === 2){
+          const x1 = Math.min(...p.map(q=>q[0])), x2 = Math.max(...p.map(q=>q[0])), y1 = Math.min(...p.map(q=>q[1])), y2 = Math.max(...p.map(q=>q[1]));
+          const w = x2-x1, h = y2-y1;
+          if(fill && Math.min(w,h) <= 3){ if(w >= h) seg(x1, (y1+y2)/2, x2, (y1+y2)/2); else seg((x1+x2)/2, y1, (x1+x2)/2, y2); }
+          else if(stroke){ seg(x1,y1,x2,y1); seg(x1,y2,x2,y2); seg(x1,y1,x1,y2); seg(x2,y1,x2,y2); }
+        } else if(stroke){
+          for(let i = 1; i < p.length; i++) seg(p[i-1][0], p[i-1][1], p[i][0], p[i][1]);
+          if(s.closed) seg(p[p.length-1][0], p[p.length-1][1], p[0][0], p[0][1]);
+        }
+      }
+      subs = []; cur = null;
+    };
+    const P = (x, y) => ap(ctm, x, y);
+    const mv = (x, y) => { cur = {pts:[P(x,y)], curved:false, closed:false}; subs.push(cur); };
+    const ln = (x, y) => { if(!cur) return mv(x, y); cur.pts.push(P(x,y)); };
+    const cv = (x, y) => { if(!cur) return mv(x, y); cur.pts.push(P(x,y)); cur.curved = true; };
+    const rc = (x, y, w, h) => { subs.push({pts:[P(x,y), P(x+w,y), P(x+w,y+h), P(x,y+h)], curved:false, closed:true}); cur = null; };
+    for(let i = 0; i < ol.fnArray.length; i++){
+      const f = ol.fnArray[i], a = ol.argsArray[i];
+      if(f === O.save) stack.push(ctm.slice());
+      else if(f === O.restore){ if(stack.length) ctm = stack.pop(); }
+      else if(f === O.transform) ctm = mul(ctm, a);
+      else if(f === O.constructPath){
+        if(typeof a[0] === 'number'){            // newer pdf.js: [paintOp, [pathData], minMax]
+          const d = a[1] && a[1][0]; if(d){
+            for(let k = 0; k < d.length;){
+              const c = d[k++];
+              if(c === 0){ mv(d[k], d[k+1]); k += 2; }
+              else if(c === 1){ ln(d[k], d[k+1]); k += 2; }
+              else if(c === 2){ cv(d[k+4], d[k+5]); k += 6; }
+              else if(c === 3){ cv(d[k+2], d[k+3]); k += 4; }
+              else if(c === 4){ if(cur) cur.closed = true; }
+              else break;
+            }
+          }
+          paint(strokeOps.has(a[0]), fillOps.has(a[0]));
+        } else {                                  // pdf.js 3.x: [ops[], coords[]]
+          const ops = a[0], c = a[1]; let k = 0;
+          for(const op of ops){
+            if(op === O.moveTo){ mv(c[k], c[k+1]); k += 2; }
+            else if(op === O.lineTo){ ln(c[k], c[k+1]); k += 2; }
+            else if(op === O.curveTo){ cv(c[k+4], c[k+5]); k += 6; }
+            else if(op === O.curveTo2 || op === O.curveTo3){ cv(c[k+2], c[k+3]); k += 4; }
+            else if(op === O.rectangle){ rc(c[k], c[k+1], c[k+2], c[k+3]); k += 4; }
+            else if(op === O.closePath){ if(cur) cur.closed = true; }
+          }
+        }
+      }
+      else if(strokeOps.has(f) || fillOps.has(f)) paint(strokeOps.has(f), fillOps.has(f));
+      else if(f === O.endPath){ subs = []; cur = null; }
+      else if(f === O.paintImageXObject || f === O.paintInlineImageXObject || f === O.paintJpegXObject){
+        const q1 = ap(ctm, 0, 0), q2 = ap(ctm, 1, 1), q3 = ap(ctm, 1, 0), q4 = ap(ctm, 0, 1), X = [q1[0], q2[0], q3[0], q4[0]], Y = [q1[1], q2[1], q3[1], q4[1]];
+        imgs.push({inline: f !== O.paintImageXObject, a, x0: Math.min(...X), x1: Math.max(...X), y0: Math.min(...Y), y1: Math.max(...Y)});
+      }
+    }
+    return {hs: mergeSegs(hs, 'y', 'x1', 'x2'), vs: mergeSegs(vs, 'x', 'y1', 'y2'), imgs};
+  }
+  function mergeSegs(a, k, lo, hi){
+    a = a.slice().sort((p, q) => p[k] - q[k] || p[lo] - q[lo]); const out = [];
+    for(const s of a){
+      const g = out.find(o => Math.abs(o[k] - s[k]) <= 1.5 && s[lo] <= o[hi] + 3 && s[hi] >= o[lo] - 3);
+      if(g){ g[lo] = Math.min(g[lo], s[lo]); g[hi] = Math.max(g[hi], s[hi]); } else out.push({...s});
+    }
+    return out;
+  }
+  const cluster = v => { v = v.slice().sort((a, b) => a - b); const o = []; let g = [];
+    v.forEach(x => { if(g.length && x - g[g.length-1] > 2){ o.push(g.reduce((s, y) => s+y, 0)/g.length); g = []; } g.push(x); });
+    if(g.length) o.push(g.reduce((s, y) => s+y, 0)/g.length); return o; };
+
+  /* ---------- 2. tables: connected ruling lines -> grid of cells (with merged cells) ---------- */
+  function findTables(hs, vs){
+    const n = hs.length + vs.length, par = Array.from({length:n}, (_, i) => i);
+    const find = i => { while(par[i] !== i){ par[i] = par[par[i]]; i = par[i]; } return i; };
+    hs.forEach((h, i) => vs.forEach((v, j) => {
+      if(v.x >= h.x1-2 && v.x <= h.x2+2 && h.y >= v.y1-2 && h.y <= v.y2+2) par[find(i)] = find(hs.length+j);
+    }));
+    const comp = {};
+    hs.forEach((h, i) => (comp[find(i)] = comp[find(i)] || {h:[], v:[]}).h.push(h));
+    vs.forEach((v, j) => (comp[find(hs.length+j)] = comp[find(hs.length+j)] || {h:[], v:[]}).v.push(v));
+    const T = [];
+    for(const c of Object.values(comp)){
+      const ys = cluster(c.h.map(h => h.y)), xs = cluster(c.v.map(v => v.x));
+      if(ys.length < 2 || xs.length < 2) continue;
+      const hasH = (r, ci) => c.h.some(s => Math.abs(s.y-ys[r]) <= 2.5 && s.x1 <= xs[ci]+3 && s.x2 >= xs[ci+1]-3);
+      const hasV = (ci, r) => c.v.some(s => Math.abs(s.x-xs[ci]) <= 2.5 && s.y1 <= ys[r]+3 && s.y2 >= ys[r+1]-3);
+      const nr = ys.length-1, nc = xs.length-1, own = Array.from({length:nr}, () => Array(nc).fill(null)), cells = [];
+      for(let r = 0; r < nr; r++) for(let ci = 0; ci < nc; ci++){
+        if(own[r][ci]) continue;
+        let cs = 1, rs = 1;
+        while(ci+cs < nc && !hasV(ci+cs, r)) cs++;
+        for(;;){
+          if(r+rs >= nr) break;
+          let ok = true;
+          for(let k = 0; k < cs && ok; k++){ if(hasH(r+rs, ci+k) || own[r+rs][ci+k]) ok = false; }
+          for(let k = 1; k < cs && ok; k++){ if(hasV(ci+k, r+rs)) ok = false; }
+          if(!ok) break; rs++;
+        }
+        const cell = {r, c:ci, rs, cs, x0:xs[ci], x1:xs[ci+cs], y0:ys[r], y1:ys[r+rs], items:[],
+          bT:hasH(r, ci) , bB:hasH(r+rs, ci), bL:hasV(ci, r), bR:hasV(ci+cs, r)};
+        for(let a = r; a < r+rs; a++) for(let b = ci; b < ci+cs; b++) own[a][b] = cell;
+        cells.push(cell);
+      }
+      T.push({xs, ys, nr, nc, own, cells, x0:xs[0], x1:xs[nc], y0:ys[0], y1:ys[nr], items:[]});
+    }
+    return T;
+  }
+
+  /* ---------- 3. text lines ---------- */
+  function groupLines(items){
+    items = items.slice().sort((a, b) => a.y - b.y || a.x - b.x);
+    const lines = [];
+    for(const it of items){
+      const L = lines[lines.length-1];
+      if(L && Math.abs(it.y - L.y) < Math.max(L.h, it.h) * .45){ L.items.push(it); L.h = Math.max(L.h, it.h); }
+      else lines.push({y:it.y, h:it.h, items:[it]});
+    }
+    for(const L of lines){
+      L.items.sort((a, b) => a.x - b.x); L.segs = []; let s = null;
+      for(const it of L.items){
+        const gap = s ? it.x - s.x2 : 0;
+        if(s && gap <= L.h * 1.0){ it.sp = gap > L.h * .1; s.parts.push(it); s.x2 = Math.max(s.x2, it.x + it.w); }
+        else { it.sp = false; s = {x:it.x, x2:it.x + it.w, parts:[it]}; L.segs.push(s); }
+      }
+      L.x0 = L.segs[0].x; L.x1 = Math.max(...L.segs.map(q => q.x2));
+      L.bn = L.items.some(i => BN.test(i.t));
+    }
+    lines.forEach((L, i) => {
+      const nx = lines[i+1], pitch = nx ? nx.y - L.y : 1e9;
+      L.lh = Math.max(4, pitch <= L.h * 1.3 ? pitch : L.h * 1.3);
+      if(L.bn) L.lh = Math.max(L.lh, L.h * 1.25);
+    });
+    return lines;
+  }
+  const FONT = (serif) => ({ascii: serif ? 'Times New Roman' : 'Arial', hAnsi: serif ? 'Times New Roman' : 'Arial', cs:'Nirmala UI', eastAsia:'Nirmala UI'});
+  const tiny = (tw_) => new docx.Paragraph({spacing:{before:0, after:0, line:Math.max(20, tw_), lineRule:docx.LineRuleType.EXACT}, run:{size:2}, children:[new docx.TextRun({text:'', size:2})]});
+
+  /* turns lines into paragraphs. o.originX = x of the left text edge, o.cursor = twips already used from the top */
+  function emit(lines, o){
+    const out = []; let cur = o.cursor;
+    for(const L of lines){
+      const top = L.y - L.lh * .8, lhT = tw(L.lh), before = Math.max(0, tw(top) - cur);
+      const runs = [], tabs = [];
+      L.segs.forEach((s, k) => {
+        if(k > 0) tabs.push({type:docx.TabStopType.LEFT, position:Math.max(1, tw(s.x - o.originX))});
+        s.parts.forEach((p, i) => {
+          runs.push(new docx.TextRun({
+            children: [...(i === 0 && k > 0 ? [docx.Tab ? new docx.Tab() : '\t'] : []), (p.sp ? ' ' : '') + p.t],
+            size: Math.max(6, Math.min(144, Math.round(p.h*2))), sizeComplexScript: Math.max(6, Math.min(144, Math.round(p.h*2))),
+            bold: p.b, boldComplexScript: p.b, italics: p.i, italicsComplexScript: p.i, font: /^[\uF000-\uF0FF\s]+$/.test(p.t) ? 'Wingdings' : FONT(p.serif), color: p.col,
+            shading: p.bgc && !p.tb ? {type: docx.ShadingType.CLEAR, fill: p.bgc, color: 'auto'} : undefined
+          }));
+        });
+      });
+      let align, indent = Math.max(0, tw(L.x0 - o.originX));
+      if(L.segs.length === 1){
+        const mid = (L.x0 + L.x1)/2, w = L.x1 - L.x0;
+        if(o.centerX != null && Math.abs(mid - o.centerX) <= (o.centerTol || 8) && L.x0 - o.originX > 12 && w < o.width * .98){ align = docx.AlignmentType.CENTER; indent = 0; }
+        else if(o.rightX != null && Math.abs(L.x1 - o.rightX) <= 3 && L.x0 - o.originX > 12){ align = docx.AlignmentType.RIGHT; indent = 0; }
+      }
+      out.push(new docx.Paragraph({
+        alignment: align, tabStops: tabs.length ? tabs : undefined, indent: indent ? {left: indent} : undefined,
+        spacing:{before, after:0, line:lhT, lineRule: L.bn ? docx.LineRuleType.AT_LEAST : docx.LineRuleType.EXACT},
+        children: runs
+      }));
+      cur += before + lhT;
+    }
+    return {paras: out, cursor: cur};
+  }
+
+
+  /* ---------- colours (sampled from a rendering of the page) and images ---------- */
+  const hex = c => c.map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('').toUpperCase();
+  const isWhite = c => c[0] > 244 && c[1] > 244 && c[2] > 244;
+  // background (most common colour) and foreground (colour farthest from it) inside a box given in pt
+  function sampleBox(R, x0, y0, x1, y1){
+    if(!R) return null;
+    const S = R.S, d = R.px.data, PW = R.px.width, PH = R.px.height;
+    const ax = Math.max(0, Math.floor(x0*S)), bx = Math.min(PW, Math.ceil(x1*S)), ay = Math.max(0, Math.floor(y0*S)), by = Math.min(PH, Math.ceil(y1*S));
+    if(bx - ax < 1 || by - ay < 1) return null;
+    const m = new Map(); let tot = 0;
+    for(let y = ay; y < by; y++) for(let x = ax; x < bx; x++){
+      const o = (y*PW + x)*4, k = ((d[o]>>4)<<8) | ((d[o+1]>>4)<<4) | (d[o+2]>>4);
+      const e = m.get(k); if(e){ e.n++; e.r += d[o]; e.g += d[o+1]; e.b += d[o+2]; } else m.set(k, {n:1, r:d[o], g:d[o+1], b:d[o+2]}); tot++;
+    }
+    let best = null; m.forEach(e => { if(!best || e.n > best.n) best = e; });
+    const bg = [best.r/best.n, best.g/best.n, best.b/best.n]; let far = null, fd = 0;
+    for(let y = ay; y < by; y++) for(let x = ax; x < bx; x++){
+      const o = (y*PW + x)*4, dd = (d[o]-bg[0])**2 + (d[o+1]-bg[1])**2 + (d[o+2]-bg[2])**2;
+      if(dd > fd){ fd = dd; far = [d[o], d[o+1], d[o+2]]; }
+    }
+    return {bg, frac: best.n/tot, fg: far, dist: Math.sqrt(fd)};
+  }
+  function textStyle(R, it){
+    const r = sampleBox(R, it.x, it.y - it.h*.85, it.x + it.w, it.y + it.h*.25); if(!r || r.frac < .4) return;
+    if(!isWhite(r.bg)) it.bgc = hex(r.bg);
+    if(r.fg && r.dist >= 70){
+      const lum = .3*r.fg[0] + .59*r.fg[1] + .11*r.fg[2], mx = Math.max(...r.fg), mn = Math.min(...r.fg);
+      if(!(lum < 110 && mx - mn < 60)) it.col = hex(r.fg);      // plain black text stays automatic
+    }
+  }
+  // pdf.js merges differently coloured words of one font into a single item: split it back by word when colours differ
+  function splitItem(R, it, mc){
+    textStyle(R, it);
+    const words = it.t.split(' ');
+    if(!R || words.length < 2 || it.w < 20) return [it];
+    mc.font = Math.round(it.h) + 'px Arial';
+    const sw = mc.measureText(' ').width, ww = words.map(t => mc.measureText(t).width), tot = ww.reduce((x, y) => x + y, 0) + sw*(words.length-1);
+    if(!(tot > 0)) return [it];
+    const k = it.w / tot, parts = []; let x = it.x;
+    words.forEach((t, i) => { const w = ww[i]*k; parts.push({t, x, w, y: it.y, h: it.h, b: it.b, i: it.i, serif: it.serif}); x += w + sw*k; });
+    parts.forEach(q => textStyle(R, q));
+    const key = q => (q.col || '') + '|' + (q.bgc || '');
+    if(parts.every(q => key(q) === key(parts[0]))) return [it];
+    const out = [];
+    for(const q of parts){
+      const L = out[out.length-1];
+      if(L && key(L) === key(q)){ L.t += ' ' + q.t; L.w = q.x + q.w - L.x; } else out.push(q);
+    }
+    return out;
+  }
+  function cellFill(R, c){
+    if(!R || c.x1 - c.x0 < 8 || c.y1 - c.y0 < 8) return null;
+    const o = 3, pts = [[c.x0+o, c.y0+o], [c.x1-o-1, c.y0+o], [c.x0+o, c.y1-o-1], [c.x1-o-1, c.y1-o-1]], votes = new Map();
+    for(const q of pts){ const r = sampleBox(R, q[0], q[1], q[0]+1, q[1]+1); if(r){ const k = hex(r.bg.map(v => Math.round(v/8)*8)); votes.set(k, (votes.get(k)||0) + 1); } }
+    let bk = null, bn = 0; votes.forEach((n, k) => { if(n > bn){ bn = n; bk = k; } });
+    if(!bk || bn < 3) return null; const c3 = [parseInt(bk.slice(0,2),16), parseInt(bk.slice(2,4),16), parseInt(bk.slice(4,6),16)];
+    return isWhite(c3) ? null : bk;
+  }
+  async function renderPage(page, W, H){
+    try{
+      const S = 1.5, cv = document.createElement('canvas'); cv.width = Math.ceil(W*S); cv.height = Math.ceil(H*S);
+      const g = cv.getContext('2d', {willReadFrequently:true}); g.fillStyle = '#fff'; g.fillRect(0, 0, cv.width, cv.height);
+      await page.render({canvasContext:g, viewport:page.getViewport({scale:S})}).promise;
+      return {S, cv, px: g.getImageData(0, 0, cv.width, cv.height)};
+    }catch(e){ console.warn('render', e); return null; }
+  }
+  async function imageRuns(page, imgs, R, W, H){
+    const out = [], seen = new Set();
+    for(const im of imgs){
+      const w = im.x1 - im.x0, h = im.y1 - im.y0;
+      if(w < 6 || h < 6 || (w*h > W*H*.85)) continue;
+      const key = [im.x0, im.y0, im.x1, im.y1].map(Math.round).join(',') + '|' + (im.inline ? '' : im.a[0]); if(seen.has(key)) continue; seen.add(key);
+      try{
+        let obj = im.inline ? im.a[0] : await new Promise(res => { let d = false; const f = v => { if(!d){ d = true; res(v); } }; try{ page.objs.get(im.a[0], f); }catch(e){ f(null); } setTimeout(() => f(null), 4000); });
+        const mw = Math.min(1200, Math.max(16, Math.round(w*2))), mh = Math.max(8, Math.round(mw*h/w)), oc = document.createElement('canvas'); oc.width = mw; oc.height = mh;
+        const g = oc.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, mw, mh); let ok = false;
+        const src = document.createElement('canvas');
+        if(obj && obj.bitmap){ g.drawImage(obj.bitmap, 0, 0, mw, mh); ok = true; }
+        else if(obj && obj.data && obj.width && obj.height){
+          const iw = obj.width, ih = obj.height, id = new ImageData(iw, ih), d = obj.data, o = id.data, n = iw*ih;
+          if(d.length >= n*4){ for(let i = 0; i < n*4; i++) o[i] = d[i]; ok = true; }
+          else if(d.length >= n*3){ for(let i = 0, j = 0, k = 0; i < n; i++){ o[j++] = d[k++]; o[j++] = d[k++]; o[j++] = d[k++]; o[j++] = 255; } ok = true; }
+          else if(d.length >= n && obj.kind !== 1){ for(let i = 0, j = 0; i < n; i++){ o[j++] = d[i]; o[j++] = d[i]; o[j++] = d[i]; o[j++] = 255; } ok = true; }
+          else if(obj.kind === 1){ const rb = (iw + 7) >> 3; for(let y = 0; y < ih; y++) for(let x = 0; x < iw; x++){ const v = (d[y*rb + (x>>3)] >> (7 - (x&7))) & 1 ? 255 : 0, j = (y*iw + x)*4; o[j] = o[j+1] = o[j+2] = v; o[j+3] = 255; } ok = true; }
+          if(ok){ src.width = iw; src.height = ih; src.getContext('2d').putImageData(id, 0, 0); g.drawImage(src, 0, 0, mw, mh); }
+        }
+        if(!ok && R){ g.drawImage(R.cv, Math.floor(im.x0*R.S), Math.floor(im.y0*R.S), Math.ceil(w*R.S), Math.ceil(h*R.S), 0, 0, mw, mh); ok = true; }
+        if(!ok) continue;
+        const blob = await new Promise(r => oc.toBlob(r, 'image/png')), data = new Uint8Array(await blob.arrayBuffer());
+        out.push(new docx.ImageRun({
+          type: 'png', data, transformation: {width: Math.max(1, Math.round(w*96/72)), height: Math.max(1, Math.round(h*96/72))},
+          floating: {
+            horizontalPosition: {relative: docx.HorizontalPositionRelativeFrom.PAGE, offset: Math.round(im.x0*12700)},
+            verticalPosition: {relative: docx.VerticalPositionRelativeFrom.PAGE, offset: Math.round(im.y0*12700)},
+            wrap: {type: docx.TextWrappingType.NONE}, behindDocument: true, allowOverlap: true
+          }
+        }));
+      }catch(e){ console.warn('image', e); }
+    }
+    return out;
+  }
+
+  /* ---------- 4. one PDF page -> one Word section ---------- */
+  async function pageToSection(page){
+    const vp = page.getViewport({scale:1}), W = vp.width, H = vp.height, vt = vp.transform;
+    const tc = await page.getTextContent();
+    let rules = {hs:[], vs:[], imgs:[]}, fonts = {};
+    try{
+      const ol = await page.getOperatorList();
+      rules = getRules(ol, vt);
+    }catch(e){ console.warn('rules', e); }
+    const R = await renderPage(page, W, H);
+    const fstyle = fn => {
+      if(fn in fonts) return fonts[fn];
+      let r = null;
+      try{
+        const o = page.commonObjs.has(fn) ? page.commonObjs.get(fn) : null;
+        if(o){ const n = String(o.name || o.fallbackName || ''); r = {b: !!o.bold || /bold|black|heavy|semibold|demi/i.test(n), i: !!o.italic || /italic|oblique/i.test(n), serif: /times|serif(?!.*sans)|georgia|garamond|cambria|book|palatino|minion/i.test(n) && !/sans/i.test(n)}; }
+      }catch(e){}
+      return fonts[fn] = r;
+    };
+    const seen = new Set(), items = [];
+    for(const it of tc.items){
+      if(!('str' in it)) continue;
+      const t = it.str.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF\uFFFD]/g, '').replace(/\s+/g, ' ').trim(); if(!t) continue;
+      const tr = it.transform, h = Math.abs(it.height) || Math.hypot(tr[2], tr[3]) || 10, [x, y] = ap(vt, tr[4], tr[5]);
+      const key = t + '|' + Math.round(x) + '|' + Math.round(y); if(seen.has(key)) continue; seen.add(key);
+      const fs = fstyle(it.fontName);
+      items.push({t, x, y, w: it.width, h: Math.max(4, Math.min(120, h)), b: fs ? fs.b : h >= 14, i: fs ? !!fs.i : false, serif: fs ? fs.serif : false});
+    }
+    const mc = document.createElement('canvas').getContext('2d');
+    for(let q = 0; q < items.length; q++){ try{ const sp = splitItem(R, items[q], mc); if(sp.length > 1){ items.splice(q, 1, ...sp); q += sp.length - 1; } }catch(e){} }
+    const sec = children => ({properties:{page:{size:{width:tw(W), height:tw(H)}, margin:{top:0, bottom:0, left:0, right:0, header:0, footer:0}}}, children});
+    const imgRuns = await imageRuns(page, rules.imgs, R, W, H);
+    if(!items.length){
+      const s0 = sec([imgRuns.length ? new docx.Paragraph({spacing:{before:0, after:0, line:20, lineRule:docx.LineRuleType.EXACT}, children: imgRuns}) : tiny(20)]);
+      return {has:false, section: s0};
+    }
+
+    // tables
+    let tables = findTables(rules.hs, rules.vs);
+    for(const it of items){
+      const cx = it.x + it.w/2, cy = it.y - it.h*.3;
+      for(const T of tables) if(cx >= T.x0-1 && cx <= T.x1+1 && cy >= T.y0-1 && cy <= T.y1+1){ T.items.push(it); it.tb = T; break; }
+    }
+    tables = tables.filter(T => T.items.length && !(T.nr === 1 && T.nc === 1 && ((T.x1-T.x0)*(T.y1-T.y0) > W*H*.8)));
+    const kept = new Set(tables);
+    items.forEach(it => { if(it.tb && !kept.has(it.tb)) it.tb = null; });
+    for(const T of tables) for(const it of T.items){
+      const cx = it.x + it.w/2, cy = it.y - it.h*.3;
+      let ci = T.xs.findIndex((x, k) => k < T.nc && cx < T.xs[k+1]); if(ci < 0) ci = T.nc-1;
+      let r = T.ys.findIndex((y, k) => k < T.nr && cy < T.ys[k+1]); if(r < 0) r = T.nr-1;
+      T.own[r][ci].items.push(it);
+    }
+    const free = items.filter(it => !it.tb);
+
+    // page margins: left/right symmetric where possible, so centred titles stay centred
+    const all = items.map(i => i), minX = Math.min(...all.map(i => i.x), ...tables.map(T => T.x0)), maxX = Math.max(...all.map(i => i.x + i.w), ...tables.map(T => T.x1));
+    const LM = Math.max(0, Math.min(minX, W - maxX, 90) - 1), RM = LM / 2;
+    const lines = groupLines(free);
+    const els = lines.map(L => ({k:'l', top: L.y - L.h, L})).concat(tables.map(T => ({k:'t', top: T.y0, T})));
+    els.sort((a, b) => a.top - b.top);
+    const firstTop = els.length ? Math.max(0, Math.min(...els.map(e => e.k === 'l' ? e.L.y - e.L.lh * .8 : e.T.y0)) - 1) : 0;
+    const TM = Math.min(firstTop, 120);
+    let cursor = tw(TM); const ch = [];
+    if(imgRuns.length){ ch.push(new docx.Paragraph({spacing:{before:0, after:0, line:20, lineRule:docx.LineRuleType.EXACT}, children: imgRuns})); cursor += 20; }
+    const ctx = {originX: LM, centerX: W/2, centerTol: 10, width: W - LM - RM};
+    // a table that has other text or another table next to it (same height, different columns) cannot be stacked in the flow:
+    // it would push the neighbouring lines down. Such tables are placed at their exact position on the page instead.
+    for(const T of tables){
+      T.fl = lines.some(L => L.y - L.h*.8 < T.y1 - 1 && L.y + L.h*.3 > T.y0 + 1 && (L.x0 >= T.x1 - 2 || L.x1 <= T.x0 + 2))
+          || tables.some(U => U !== T && U.y0 < T.y1 - 1 && U.y1 > T.y0 + 1 && (U.x0 >= T.x1 - 2 || U.x1 <= T.x0 + 2));
+    }
+    for(const e of els){
+      if(e.k === 'l'){
+        const r = emit([e.L], {...ctx, cursor}); ch.push(...r.paras); cursor = r.cursor;
+      } else {
+        const T = e.T, gap = tw(T.y0) - cursor;
+        if(!T.fl && gap > 20){ ch.push(tiny(gap)); cursor += gap; }
+        const colW = Array.from({length:T.nc}, (_, k) => tw(T.xs[k+1] - T.xs[k]));
+        const NO = {style:docx.BorderStyle.NONE, size:0, color:'auto'}, LN = {style:docx.BorderStyle.SINGLE, size:4, color:'000000'};
+        const rows = [];
+        for(let r = 0; r < T.nr; r++){
+          const cells = [];
+          for(let ci = 0; ci < T.nc; ci++){
+            const c = T.own[r][ci]; if(c.r !== r || c.c !== ci) continue;
+            const cl = groupLines(c.items), pad = 2, o = {originX: c.x0 + pad, centerX: (c.x0+c.x1)/2, centerTol: 3, rightX: c.x1 - pad, width: c.x1 - c.x0 - 2*pad, cursor: tw(c.y0)};
+            let paras = cl.length ? emit(cl, o).paras : [tiny(20)];
+            cells.push(new docx.TableCell({
+              width:{size: tw(c.x1 - c.x0), type:docx.WidthType.DXA}, columnSpan: c.cs > 1 ? c.cs : undefined, rowSpan: c.rs > 1 ? c.rs : undefined,
+              margins:{top:0, bottom:0, left:tw(pad), right:tw(pad), marginUnitType:docx.WidthType.DXA}, verticalAlign: docx.VerticalAlign.TOP, shading: (fl => fl ? {type: docx.ShadingType.CLEAR, fill: fl, color: 'auto'} : undefined)(cellFill(R, c)),
+              borders:{top: c.bT ? LN : NO, bottom: c.bB ? LN : NO, left: c.bL ? LN : NO, right: c.bR ? LN : NO}, children: paras
+            }));
+          }
+          rows.push(new docx.TableRow({cantSplit:true, height:{value: Math.max(20, tw(T.ys[r+1] - T.ys[r])), rule: docx.HeightRule.ATLEAST}, children: cells}));
+        }
+        ch.push(new docx.Table({
+          width:{size: colW.reduce((a, b) => a+b, 0), type:docx.WidthType.DXA}, columnWidths: colW, layout: docx.TableLayoutType.FIXED,
+          indent: T.fl ? undefined : {size: Math.max(0, tw(T.x0 - LM) + tw(2)), type:docx.WidthType.DXA},
+          float: T.fl ? {horizontalAnchor: docx.TableAnchorType ? docx.TableAnchorType.PAGE : 'page', verticalAnchor: docx.TableAnchorType ? docx.TableAnchorType.PAGE : 'page',
+                         absoluteHorizontalPosition: tw(T.x0), absoluteVerticalPosition: tw(T.y0),
+                         overlap: docx.OverlapType ? docx.OverlapType.OVERLAP : 'overlap', leftFromText: 0, rightFromText: 0, topFromText: 0, bottomFromText: 0} : undefined,
+          borders:{top:NO, bottom:NO, left:NO, right:NO, insideHorizontal:NO, insideVertical:NO}, rows
+        }));
+        if(!T.fl){ ch.push(tiny(20)); cursor = tw(T.y0) + tw(T.y1 - T.y0) + 20; }
+      }
+    }
+    const s = sec(ch);
+    s.properties.page.margin = {top: tw(TM), bottom: 0, left: tw(LM), right: tw(RM), header: 0, footer: 0, gutter: 0};
+    if(W > H){ s.properties.page.size = {width: tw(H), height: tw(W), orientation: docx.PageOrientation.LANDSCAPE}; }
+    return {has:true, section: s};
+  }
+  const docStyles = () => ({default:{document:{run:{size:2, sizeComplexScript:2}, paragraph:{spacing:{before:0, after:0, line:20, lineRule:docx.LineRuleType.EXACT}}}}});
+  return {pageToSection, docStyles, getRules};
+})();
+
+const H = {
+  pdf_word: {btn:'Convert to Word', need:'Select a PDF.',
+    opts:`<label>Language for scanned PDFs (OCR)<select id="ol"><option value="ben+eng">Bengali + English</option><option value="eng">English only</option></select></label>
+          <p style="font-size:13px;color:#5d6579;margin:10px 0 0">Regular PDFs keep their original layout: every line stays on its own line in the same order, tables (with borders and merged cells) are rebuilt as real Word tables, and each page stays a page. Pictures, text colours, highlights and table shading are kept too (headers and footers stay where they were on the page). If no text is found, OCR runs automatically. The first run downloads language data, and each page can take 10–30 seconds. OCR output contains text only, no tables. Please double-check the OCR results.</p>`,
+    async run(){
+      const pdf = await pdfjsLib.getDocument({data: await files[0].arrayBuffer()}).promise;
+      const secs = []; let any = 0;
+      for(let i=1; i<=pdf.numPages; i++){
+        msg(`Reading page ${i}/${pdf.numPages}…`);
+        const r = await P2W.pageToSection(await pdf.getPage(i));
+        if(r.has) any = 1; secs.push(r.section);
+      }
+      let ch = [];
+      if(!any){
+        let pg = 1;
+        msg('This PDF has no selectable text. Starting OCR; the first run may take a moment…');
+        const wk = await Tesseract.createWorker($('#ol').value, 1, {logger: m => { if(m.status) msg(`OCR: page ${pg}/${pdf.numPages} · ${m.status}${m.progress ? ' ' + Math.round(m.progress*100) + '%' : ''}`); }});
+        for(let i=1; i<=pdf.numPages; i++){
+          pg = i;
+          const page = await pdf.getPage(i), v = page.getViewport({scale:3});
+          const c = document.createElement('canvas'); c.width = v.width; c.height = v.height;
+          const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0,0,c.width,c.height);
+          await page.render({canvasContext:x, viewport:v}).promise;
+          const {data:{text}} = await wk.recognize(c);
+          text.split(/\n\s*\n/).map(t => t.replace(/\s*\n\s*/g,' ').trim()).filter(Boolean).forEach((t,k) => {
+            any = 1; ch.push(new docx.Paragraph({pageBreakBefore: i>1 && k==0, spacing:{after:120}, children:[new docx.TextRun({text:t, size:22, font:'Nirmala UI'})]}));
+          });
+          c.width = c.height = 0;
+        }
+        await wk.terminate();
+        if(!any) throw Error('No text was found, even with OCR. Try a different scan quality or language.');
+      }
+      const docSections = any && !ch.length ? secs : [{children: ch}];
+      dl(await docx.Packer.toBlob(new docx.Document({styles: P2W.docStyles(), sections: docSections})), base(files[0])+'.docx'); done();
+    }}
+};
+
+function list(){
+  $('#fl').innerHTML = files.map((f,i) => `<li><span>${esc(f.name)} <small>${sz(f.size)}</small></span><button data-i="${i}" aria-label="Remove">✕</button></li>`).join('');
+  $('#pk').textContent = files.length ? 'Choose another file' : 'Choose a PDF file';
+}
+$('#op').innerHTML = H.pdf_word.opts;
+$('#go').textContent = H.pdf_word.btn;
+$('#pk').textContent = 'Choose a PDF file';
+track('tool_open', {tool_name: cur});
+$('#fi').onchange = e => {
+  const all = [...e.target.files], ok = all.filter(f => /\.pdf$/i.test(f.name) || f.type == 'application/pdf');
+  e.target.value = '';
+  files = ok.slice(0, 1);
+  if(all.length && !ok.length) msg('This file is not supported: ' + all.map(f => esc(f.name)).join(', ') + '. Please choose a PDF.', 'err'); else msg('');
+  list();
+};
+$('#fl').onclick = e => { const b = e.target.closest('button'); if(!b) return; files.splice(+b.dataset.i, 1); list(); };
+$('#cl').onclick = () => { location.href = './'; };
+$('#go').onclick = async () => {
+  const h = H.pdf_word;
+  if(!files.length) return msg(h.need, 'err');
+  $('#go').disabled = true; msg('Starting…');
+  try { await h.run(); }
+  catch(e){ console.error(e); msg('Error: ' + (e.message||e) + '<br><small>The file may be password-protected or damaged.</small>', 'err'); }
+  $('#go').disabled = false;
+};
+document.addEventListener('click', e => { const a = e.target.closest('.ext,.btn-ext'); if(a) track('extension_click', {location: a.closest('.promo') ? 'top_banner' : 'after_task'}); });
+</script>
+<script>
+// ====== Contact / Share ======
+const CONTACT_EMAIL = '';   // <-- আপনার ইমেইল এখানে লিখুন, যেমন 'name@gmail.com' (খালি থাকলে Contact বাটন লুকানো থাকবে)
+(function(){
+  const $ = s => document.querySelector(s), URL_ = 'https://work-bd.github.io/', TXT = 'Work BD – Free PDF & photo tools (Passport photo, KB size, Image to PDF)';
+  if(CONTACT_EMAIL){ const c = $('#contact-b'); c.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Work BD – Contact'); c.hidden = false; }
+  const d = $('#shd');
+  $('#share-b').onclick = () => { d.showModal(); if(navigator.share) $('#sh-nat').hidden = false; };
+  $('#sh-wa').href = 'https://wa.me/?text=' + encodeURIComponent(TXT + ' ' + URL_);
+  $('#sh-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(URL_);
+  $('#sh-cp').onclick = async () => { try { await navigator.clipboard.writeText(URL_); } catch(e){ const t = document.createElement('textarea'); t.value = URL_; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); } $('#sh-cp').textContent = '✓ Link copied'; };
+  $('#sh-nat').onclick = () => navigator.share({title:'Work BD', text:TXT, url:URL_}).catch(() => {});
+  $('#sh-x').onclick = () => d.close(); d.addEventListener('click', e => { if(e.target === d) d.close(); });
+  d.addEventListener('close', () => { $('#sh-cp').textContent = '📋 Copy link'; });
+})();
+</script>
+</body>
+</html>
