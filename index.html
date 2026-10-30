@@ -74,6 +74,37 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:26px;border-top
 #shd::backdrop{background:rgba(15,20,40,.55)}#shd h3{margin:0 0 4px;font-size:18px}#shd p{margin:0 0 12px;font-size:13.5px;color:#5b6478}
 #shd .sg{display:grid;gap:8px}#shd .sg a,#shd .sg button{font:inherit;font-weight:700;font-size:15px;text-align:center;text-decoration:none;color:#fff;border:0;border-radius:10px;padding:11px;cursor:pointer}
 #shd .wa{background:#1fa855}#shd .fb{background:#1877f2}#shd .cp{background:#eef0f7!important;color:#0f172a!important}#shd .cx{background:none!important;color:#5b6478!important;font-weight:600!important}
+
+/*AD*/
+main{max-width:1440px}
+.layout{display:flex;gap:18px;align-items:flex-start}
+.layout .grid{flex:1;min-width:0}
+.adbox{width:150px;flex:0 0 150px;position:sticky;top:12px}
+a.ad{display:block;position:relative;text-decoration:none;color:#fff;text-align:center;padding:14px 10px 12px;border-radius:14px;background:linear-gradient(170deg,#1d4ed8,#312e81);box-shadow:0 8px 22px rgba(30,64,175,.35);transition:transform .2s}
+a.ad:hover{transform:translateY(-3px)}
+.ad .adtag{position:absolute;top:7px;right:8px;font:700 8px/1 Inter,sans-serif;letter-spacing:.08em;background:rgba(15,23,42,.55);padding:3px 6px;border-radius:99px}
+.ad .adlogo{width:44px;height:44px;display:block;margin:4px auto 8px}
+.ad .adkick{display:inline-block;background:#dc2626;font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px;transform:rotate(-2deg)}
+.ad h3{margin:8px 0 4px;font-size:15px;font-weight:800;line-height:1.15}
+.ad h3 span{color:#fde047;display:block}
+.ad p{margin:0 0 10px;font-size:11px;line-height:1.3;color:#dbeafe}
+.ad .adform{margin:2px 0 4px;font-family:"Noto Sans Bengali","Nirmala UI","Kalpurush","Siyam Rupali",Inter,system-ui,sans-serif;line-height:1.25}
+.ad .adform span{display:block}
+.ad .a1{font-size:17px;font-weight:800;color:#fff;line-height:1.3;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.ad .a2{font-size:26px;font-weight:800;color:#fde047;margin:3px 0 0;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.ad .a3{display:inline-block!important;background:#fde047;color:#1e1b4b;font-size:17px;font-weight:800;padding:1px 10px 3px;border-radius:6px;margin:4px 0;transform:rotate(-2deg);box-shadow:0 2px 0 #a16207}
+.ad .a4{font-size:17px;font-weight:800;color:#fff}
+.ad .adbtn{display:block;background:linear-gradient(#ef4444,#b91c1c);font-weight:800;font-size:14px;padding:9px 6px;border-radius:99px;box-shadow:0 3px 0 #7f1d1d}
+.ad small{display:block;margin-top:9px;font-size:9.5px;color:#fde68a;font-weight:600}
+.ad .adq{position:relative;display:inline-block;margin:6px 0 2px;padding:0 4px 7px;color:#fde047;font-family:"Noto Sans Bengali","Nirmala UI","Kalpurush","Siyam Rupali",Inter,system-ui,sans-serif;font-size:26px;font-weight:800;line-height:1.2;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.ad .adq::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;border-radius:6px;background:#ef4444;transform:rotate(-1.5deg);box-shadow:0 1px 0 rgba(0,0,0,.3)}
+.ad .adq i{font-style:normal;color:#fff;font-weight:900;margin-left:2px}
+a.ad:hover .adq{color:#fff}
+@media (max-width:1000px){
+.layout{flex-direction:column}
+.adbox{order:-1;width:100%;max-width:180px;flex:none;position:static;margin:0 auto}
+}
+/*ENDAD*/
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2MPXSDJBBS"></script>
@@ -85,16 +116,15 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:26px;border-top
 </script>
 </head>
 <body>
-<div class="promo"><span>🚀 Fill out job application forms automatically in just 1 click!</span><a class="ext" href="https://chromewebstore.google.com/detail/all-job-form-auto-filler/mimopbkpobmlnfilfhlclpeiediabpeg" target="_blank" rel="noopener">Add to Chrome (free)</a></div>
 
 <header class="hero">
   <a class="hlogo" href="./" aria-label="Home"><img class="brand" src="logo.png" width="131" height="60" alt="Work BD logo" fetchpriority="high"></a>
   <h1>Free Online PDF Tools</h1>
-  <p>Your files are never uploaded. Everything runs in your browser, so it is completely private.</p>
 </header>
 
 <nav class="tabs" id="tabs"><button data-k="all" class="on">All tools</button><button data-k="organize" class="">Organize PDF</button><button data-k="optimize" class="">Optimize PDF</button><button data-k="convert" class="">Convert PDF</button><button data-k="edit" class="">Edit PDF</button><button data-k="security" class="">PDF Security</button><button data-k="ai" class="">PDF Intelligence</button></nav>
-<main><div class="grid" id="grid">
+<main><div class="layout">
+<div class="grid" id="grid">
 <a class="card live" data-cat="convert" href="image-to-pdf.html"><div class="ic">📷</div><h3>Image to PDF</h3></a>
 <a class="card live" data-cat="convert" href="palli-bidyut-newconnection-rebpbs.html"><div class="ic"><img src="data:image/png;base64,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" alt="Bangladesh Rural Electrification Board"></div><h3>Palli Bidyut</h3></a>
 <a class="card live" data-cat="optimize" href="compress-pdf.html"><div class="ic">🗜️</div><h3>Compress PDF</h3></a>
@@ -129,6 +159,15 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:26px;border-top
 <div class="card soon" data-cat="ai" aria-disabled="true"><span class="tag">Coming soon</span><div class="ic">🧠</div><h3>AI Summarizer</h3></div>
 <div class="card soon" data-cat="ai" aria-disabled="true"><span class="tag">Coming soon</span><div class="ic">🌍</div><h3>Translate PDF</h3></div>
 <a class="card live" data-cat="ai" href="pdf-to-markdown.html"><div class="ic">⬇️</div><h3>PDF to Markdown</h3></a>
+</div>
+<aside class="adbox" aria-label="Advertisement"><a class="ad" href="https://chromewebstore.google.com/detail/all-job-form-auto-filler/mimopbkpobmlnfilfhlclpeiediabpeg" target="_blank" rel="noopener sponsored" aria-label="All Job Form Auto Filler Pro – free Chrome extension">
+<span class="adtag">AD</span>
+<svg class="adlogo" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="4" width="32" height="40" rx="6" fill="#fff"/><path d="M12 15h18M12 22h18M12 29h12" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/><path d="M42 6l4 4-16 20-6 2 2-6z" fill="#fbbf24" stroke="#b45309" stroke-width="1.5" stroke-linejoin="round"/></svg>
+<h3>All Job Form <span>Auto Filler Pro</span></h3>
+<p>Fill any job application form in one click</p>
+<div class="adform"><span class="a1">যেকোন চাকরির আবেদন</span><span class="a2">১ ক্লিকে</span><span class="a3">১ মিনিটে</span><span class="a4">পূরণ করুন</span></div>
+<span class="adq">কিভাবে? <i>›</i></span>
+</a></aside>
 </div></main>
 
 <footer><div class="flinks">
